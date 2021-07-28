@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FeefFactsMVVM</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="feeffacts">FeefFacts</string>
+    <string name="hey_there_and_welcome_click_on_the_start_button_to_begin">Hey there and welcome! Click on the start button to begin!</string>
+    <string name="this_is_fahads_own_app_to_test_out_his_knowledge_on_mvvm_architecture_enjoy">This is Fahads own app to test out his knowledge on MVVM architecture.Enjoy!</string>
+    <string name="start">start</string>
+    <string name="next_fact">Next Fact</string>
+</resources>

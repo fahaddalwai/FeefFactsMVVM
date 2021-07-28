@@ -1,0 +1,2 @@
+rootProject.name = "FeefFactsMVVM"
+include ':app'
