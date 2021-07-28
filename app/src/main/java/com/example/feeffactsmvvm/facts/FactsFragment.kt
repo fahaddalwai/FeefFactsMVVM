@@ -12,13 +12,12 @@ import com.example.feeffactsmvvm.R
 import com.example.feeffactsmvvm.databinding.FragmentFactsBinding
 
 
-
-
 class FactsFragment : Fragment() {
 
-    lateinit var binding: FragmentFactsBinding
+    private lateinit var binding: FragmentFactsBinding
 
-    private lateinit var viewModel:FactsViewModel
+    private lateinit var viewModel: FactsViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +27,9 @@ class FactsFragment : Fragment() {
 
 
 
-        viewModel = ViewModelProvider(this).get(FactsViewModel::class.java)
+        viewModel =
+            ViewModelProvider(this).get(FactsViewModel::class.java)      //define instance of viewmodel using provider
+
 
         // Set the viewmodel for databinding - this allows the bound layout access
         // to all the data in the ViewModel
@@ -38,33 +39,26 @@ class FactsFragment : Fragment() {
         // This is used so that the binding can observe LiveData updates
         binding.lifecycleOwner = viewLifecycleOwner
 
-        viewModel.eventFactsFinish.observe(viewLifecycleOwner, {
-            if(it){
-                nextFragment()
-                viewModel.setEventGameFinishToFalse()
-            }
-
-        })
 
 
 
+        viewModel.eventFactsFinish.observe(
+            viewLifecycleOwner,
+            {                   //all event observers stay in ui controller
+                if (it) {
+                    nextFragment()
+                    viewModel.setEventFactsFinishToFalse()
+                }
 
-
-
-
-
-
+            })
 
 
         return binding.root
     }
 
 
-
-
-
     private fun nextFragment() {
-        findNavController().navigate(R.id.action_factsFragment_to_startFragment)
+        findNavController().navigate(R.id.action_factsFragment_to_startFragment)         //all actions,navigation's are defined in ui controller
     }
 
 

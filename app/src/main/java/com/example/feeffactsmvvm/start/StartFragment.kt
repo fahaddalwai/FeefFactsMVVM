@@ -1,13 +1,12 @@
 package com.example.feeffactsmvvm.start
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.feeffactsmvvm.R
 import com.example.feeffactsmvvm.databinding.FragmentStartBinding
@@ -26,7 +25,7 @@ class StartFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(StartViewModel::class.java)
 
-        binding.start.setOnClickListener{ nextFragment() }
+        binding.start.setOnClickListener{ nextFragment() }           //Here we have a onclicklistener because it is for an action
 
 
 

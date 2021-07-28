@@ -4,38 +4,38 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class FactsViewModel: ViewModel() {
+class FactsViewModel : ViewModel() {
 
     private lateinit var factsList: MutableList<String>
 
-    // The current word
-    private val _word = MutableLiveData<String>()
+    // The current fact
+    private val _word = MutableLiveData<String>()                  //encapsulating it
     val word: LiveData<String>
-        get()= _word
+        get() = _word
 
-    // Event which triggers the end of the game
+    // Event action which triggers the end of the all facts and tells whether to go start fragment or not
     private val _eventFactsFinish = MutableLiveData<Boolean>()
     val eventFactsFinish: LiveData<Boolean>
         get() = _eventFactsFinish
 
 
-    fun setEventGameFinishToFalse(){
-        _eventFactsFinish.value=false
+    fun setEventFactsFinishToFalse() {
+        _eventFactsFinish.value = false
     }
 
-    fun setEventGameFinishToTrue(){
-        _eventFactsFinish.value=true
+    private fun setEventFactsFinishToTrue() {
+        _eventFactsFinish.value = true
     }
 
-    init{
+    init {
         resetList()
-        _eventFactsFinish.value=false
-        setWord()
+        _eventFactsFinish.value = false
+
     }
 
-    fun resetList(){
+    private fun resetList() {
 
-        factsList=mutableListOf<String>(
+        factsList = mutableListOf(
             "Lewis Hamilton has won 7 championships!",
             "Ferrari is one of the oldest and most prestigious constructor",
             "Each car is made up of more than 80000 separate components",
@@ -49,17 +49,21 @@ class FactsViewModel: ViewModel() {
     }
 
 
-    fun setWord(){
-        _word.value=factsList[0]
+    private fun setWord() {
+        _word.value = factsList[0]
+        removeWord()
+    }
+
+    private fun removeWord() {
         factsList.removeAt(0)
     }
 
 
-    fun checkIfFinishedOrNot(){
-        if(factsList.isEmpty()){
-            setEventGameFinishToTrue()
-        }else{
-           setWord()
+    fun checkIfFinishedOrNot() {
+        if (factsList.isEmpty()) {
+            setEventFactsFinishToTrue()
+        } else {
+            setWord()
         }
     }
 
