@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.example.feeffactsmvvm.StartFragment"
+        android:name="com.example.feeffactsmvvm.start.StartFragment"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -16,7 +16,11 @@
     </fragment>
     <fragment
         android:id="@+id/factsFragment"
-        android:name="com.example.feeffactsmvvm.FactsFragment"
+        android:name="com.example.feeffactsmvvm.facts.FactsFragment"
         android:label="fragment_facts"
-        tools:layout="@layout/fragment_facts" />
+        tools:layout="@layout/fragment_facts" >
+        <action
+            android:id="@+id/action_factsFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
 </navigation>
